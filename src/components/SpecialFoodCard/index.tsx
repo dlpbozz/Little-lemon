@@ -6,24 +6,24 @@ interface SpecialFoodCardProps extends HTMLAttributes<HTMLDivElement> {
   imageUrl: string;
   title: string;
   description: string;
-  price: number;
-};
+}
 
-const SpecialFoodCard: FC<SpecialFoodCardProps> = ({ imageUrl, title, price, description, ...props }): JSX.Element => {
-
+const SpecialFoodCard: FC<SpecialFoodCardProps> = ({
+  imageUrl,
+  title,
+  description,
+  ...props
+}): JSX.Element => {
   return (
     <Container {...props}>
-      <Image src={imageUrl}/>
+      <Image src={imageUrl} />
       <Header>
         <span className="title card-title">{title}</span>
-        <span className="price highlight">$ {price}</span>
       </Header>
-      <Body>
-        {description}
-      </Body>
+      <Body>{description}</Body>
       <CallToAction>
         <button className="highlight">Order a delivery</button>
-        <img src={deliveryIcon} alt="Delivery"/>
+        <img src={deliveryIcon} alt="Delivery" />
       </CallToAction>
     </Container>
   );
